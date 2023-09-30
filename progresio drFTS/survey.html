@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot</title>
+    <link rel="stylesheet" href="survey.css">
+    <link rel="stylesheet" href="static/css/chat.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   
+    <div class="chat-bar-collapsible">
+       
+    </div>
+</body>
+
+<head>
+    <title>Diagnosis Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+  <section>
+    <h1>Diagnosis Form</h1>
+   
+    <div class="container">
+      <br><br>
+    <form action="#" id="diagnosisForm">
+      <div class="form-elements">
+      <div class="user-details">
+      <div class="input-box">
+      <span class="details">First Name:</span>
+      <input type="text" name="name" size="30" maxlength="20" placeholder="eg. Robert" required>
+      </div>
+
+      <div class="input-box">
+      <span class="details">Last Name:</span>
+      <input type="text" name="name" size="30" maxlength="20" placeholder="eg. Smith" required>
+      </div>
+
+      <br>
+
+      <div class="radio">
+      <span class="details">Sex:</span>
+      <input type="radio" name="sex" value="male"> Male
+      <input type="radio" id="female" name="sex" value="female"> Female
+      <br><br>
+      </div>
+
+      <div class="checklist">
+        <span class="details">Symptoms (select one or more):</span>
+            <br>
+            <input type="checkbox" value="diarrhoea" name="symptoms">Diarrhoea
+            <input type="checkbox" value="nausea" name="symptoms">Nausea
+            <input type="checkbox" value="vomiting" name="symptoms">Vomiting
+            <input type="checkbox" value="watery diarrhoea" name="symptoms">Watery stool
+            <br>
+            <input type="checkbox" value="muscle cramps" name="symptoms">Muscle Cramps
+            <input type="checkbox" value="weight loss" name="symptoms">Significant Weight Loss
+            <input type="checkbox" value="fever" name="symptoms">Fever
+            <input type="checkbox" value="light fever" name="symptoms">Light Fever
+            <br>
+            <input type="checkbox" value="dehydration" name="symptoms">Dehydration
+            <input type="checkbox" value="fatigue" name="symptoms">Fatigue
+            <input type="checkbox" value="jaundice" name="symptoms">Jaundice
+            <input type="checkbox" value="loss of appetite" name="symptoms">Appetite
+            <br>
+            <input type="checkbox" value="abdominal pain" name="symptoms">Abdominal Pain
+            <input type="checkbox" value="stomach cramps" name="symptoms">Stomach cramps
+            <input type="checkbox" value="bloody diarrhoea" name="symptoms">Blood in Stool
+            <input type="checkbox" value="chills" name="symptoms">Chills
+            <br>
+            <input type="checkbox" value="bloating" name="symptoms">Bloating
+            <input type="checkbox" value="headache" name="symptoms">Headache
+        <br><br>
+        </div>
+
+        <div class="text-box">
+          <span class="details">Others:</span>
+          <input type="text" id="others" name="others" size="30" maxlength="20" placeholder="Optional">
+          <br><br>
+          </div>
+      <br>
+
+      <div class="small-number-input">
+        <br>
+        <span class="details"> Water Quality (pH): </span>
+        <input type="number" id="water-quality" name="water-quality" class="small-number-input" min="1" max="10" required>
+        <br><br>
+        </div>
+
+        <div class="note-box">
+          <span class="details">Any Important Medical & Treatment History:</span><br>
+          <textarea id="history" name="history" rows="4" cols="40" placeholder="Enter your history here"></textarea>
+          </div>
+          
+
+        <input type="submit" value="Submit" id="submitBtn"><br>
+        <input type="reset" value="Reset" id="resetBtn">
+    </form>
+    <br>
+ <div class="container2">
+    <div>
+        <h2>Diagnosis Result</h2>
+        <textarea id="diagnosisResult" rows="20" cols="50" readonly>
+        </textarea>
+    </div>
+  </div>
+
+</center>
+
+<script>
+    
+function diagnoseWaterborneDisease(symptoms, waterQuality) {
+   
+    const diseases = {
+      cholera: {
+        symptoms: ['diarrhoea', 'vomiting', 'dehydration', 'muscle cramps'],
+        waterQualityThreshold: 7, 
+      },
+      giardiasis: {
+        symptoms: ['abdominal pain', 'diarrhoea', 'bloating', 'muscle cramps', 'nausea', 'weight loss'],
+        waterQualityThreshold: 8, 
+      },
+      cryptosporidiosis: {
+        symptoms: ['watery diarrhoea', 'stomach cramps', 'fever'],
+        waterQualityThreshold: 6, 
+      },
+      dysentery: {
+        symptoms: ['watery diarrhoea', 'stomach cramps', 'fever', 'nausea', 'vomiting', 'dehydration'], 
+        waterQualityThreshold: 5, 
+      },
+      e_coli: {
+        symptoms: ['bloody diarrhoea', 'stomach cramps', 'light fever', 'vomiting'],
+        waterQualityThreshold: 9, 
+      },
+      hepatitis_a: {
+        symptoms: ['bloody diarrhoea', 'stomach cramps', 'light fever', 'vomiting'],
+        waterQualityThreshold: 7, 
+      },
+      salmonella: {
+        symptoms: ['bloody diarrhoea', 'chills', 'headache'],
+        waterQualityThreshold: 4, 
+      },
+    };
+    
+    
+    const diagnosedDiseases = [];
+
+
+    for (const disease in diseases) {
+      const { symptoms: diseaseSymptoms, waterQualityThreshold } = diseases[disease];
+      const commonSymptoms = symptoms.filter((symptom) => diseaseSymptoms.includes(symptom));
+      
+      if (commonSymptoms.length === diseaseSymptoms.length && waterQuality >= waterQualityThreshold) {
+        diagnosedDiseases.push(disease);
+      }
+    }
+  
+    if (diagnosedDiseases.length > 0) {
+        return `You may have the following waterborne diseases: ${diagnosedDiseases.join(', ')}.\n\n
+        See a Doctor: If you have symptoms like diarrhea, vomiting, fever, or stomach cramps, especially after drinking suspect water, contact .\n
+        Stay Hydrated: Drink clean, safe water or oral rehydration solutions to prevent dehydration.\n
+        Follow Medical Advice: Take any prescribed medications and follow your doctor's instructions.\n
+        Practice Good Hygiene: Wash your hands, use a separate bathroom, and avoid sharing personal items.\n
+        Isolate If Advised: If your doctor recommends it, isolate yourself to prevent spreading the illness.\n
+        Report If Necessary: If it's a widespread issue, report it to your local health authorities or one of our 24/7 helpline.\n
+        Treat Drinking Water: Boil or purify drinking water if you suspect contamination.\n
+        Prevent Future Contamination: Ensure your water source is safe and educate yourself and your community about safe water practices.\n\n
+        Treatment plan: (Upcoming soon)\n
+        Please contact our free 24/7 helpline for further assistance and to get the customised prescription delivered!`;
+    } else {
+        return 'I cannot diagnose your symptoms with certainty. Please consult our free 24/7 helpline here.';
+    }
+}
+
+
+document.getElementById('submitBtn').addEventListener('click', function (event) {
+    event.preventDefault(); 
+            
+    
+    const formData = new FormData(document.getElementById('diagnosisForm'));
+    const symptoms = formData.getAll('symptoms');
+    const waterQuality = parseFloat(formData.get('water-quality'));
+
+    
+    const diagnosis = diagnoseWaterborneDisease(symptoms, waterQuality);
+
+    
+    document.getElementById('diagnosisResult').textContent = diagnosis;
+    console.log(diagnosis); 
+
+    
+    document.querySelector('.container2').style.display = 'block';
+});
+
+document.getElementById('resetBtn').addEventListener('click', function () {
+       
+        document.getElementById('diagnosisForm').reset();
+
+        document.getElementById('diagnosisResult').textContent = '';
+
+  
+        document.querySelector('.container2').style.display = 'none';
+
+   
+        location.reload();
+    });
+
+</script>
+<a href="contact.html">free 24/7 helpline here</a>
+<br>
+<a href="prettyhtml.html">back to home</a>
+
+</section>
+</body>
+</html>

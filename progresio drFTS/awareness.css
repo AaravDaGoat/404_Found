@@ -1,0 +1,50 @@
+
+body {
+    background: linear-gradient(to bottom, #007bff, #b3d7ff);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    color: #000000;
+}
+
+h1 {
+    font-size: 36px;
+    overflow: hidden; 
+    white-space: nowrap;
+    width: 0; 
+    animation: typing 3s steps(40) 1s 1 normal both;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+h2 {
+    color: #007bff;
+}
+
+p {
+    color: #444;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+section {
+    margin-bottom: 20px;
+}

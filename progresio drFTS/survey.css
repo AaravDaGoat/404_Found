@@ -1,0 +1,160 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #c3dfff, #89c3fa);
+    background-size: 100% 100%;
+    width: auto;
+    height: auto;
+    color: #333; 
+    font-family: Arial, sans-serif; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 60px;
+    font-weight: 760;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration-line: underline ;
+    position: relative;
+}
+
+h2 {
+    color: #007acc;
+    margin-top: 20px;
+}
+
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+
+.form-elements {
+    margin-bottom: 20px;
+}
+
+
+.input-box {
+    margin-bottom: 10px;
+}
+
+.radio input[type="radio"] {
+    margin-right: 5px;
+}
+
+
+.checklist input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+
+.text-box input[type="text"],
+.text-box textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.small-number-input input[type="number"] {
+    width: 100px;
+}
+
+
+.note-box textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+#submitBtn, #resetBtn {
+    background-color: #007acc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submitBtn:hover, #resetBtn:hover {
+    background-color: #005b91;
+}
+
+.container2 {
+    margin-top: 20px;
+    display: none;
+}
+
+
+#diagnosisResult {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container{
+
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+body {
+    background: linear-gradient(to bottom, #b3d7ff, #2980b9);
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.home-button {
+    background-color: transparent;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.home-button:hover {
+    color: #ecf0f1;
+    transform: scale(1.1); /* Add a slight scaling effect on hover */
+}
